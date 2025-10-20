@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MercadoFácil - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <h1>🛒 MercadoFácil</h1>
+            <p class="subtitle">Sistema de Gestão para Mercadinhos</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" required placeholder="Digite seu usuário">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required placeholder="Digite sua senha">
+                </div>
+                
+                <button type="submit" class="btn-primary">Entrar no Sistema</button>
+            </form>
+            
+            <div class="demo-credentials">
+                <p><strong>Dados para teste:</strong></p>
+                <p>Usuário: <code>admin</code> | Senha: <code>123456</code></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
