@@ -1,0 +1,106 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #f8f9fa;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        }
+
+    .loading-container {
+        text-align: center;
+        background: white;
+        padding: 60px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e9ecef;
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: #2c3e50;
+        letter-spacing: -0.5px;
+    }
+
+        .loading-text {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+
+        /* Spinner profissional */
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid #e9ecef;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        /* Barra de progresso sutil */
+        .progress-container {
+            width: 200px;
+            height: 3px;
+            background: #e9ecef;
+            border-radius: 2px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            border-radius: 2px;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        /* Status discreto */
+        .status {
+            font-size: 0.9rem;
+            color: #868e96;
+            margin-top: 16px;
+            min-height: 20px;
+            font-weight: 400;
+        }
+
+        /* Animações suaves */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsivo */
+        @media (max-width: 480px) {
+            .loading-container {
+                padding: 40px 24px;
+                margin: 20px;
+            }
+            
+            .logo {
+                font-size: 1.75rem;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+        }

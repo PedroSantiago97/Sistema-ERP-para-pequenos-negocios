@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle - ZenithPDV</title>
+    <link rel="stylesheet" href="css/principal.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">ZenithPDV - Painel de Controle</div>
+        <div class="user-info">
+            <span id="userName">Gerenciador</span>
+            <button class="logout-btn" onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="nav-item active" onclick="showSection('products')">
+                Gerenciar Produtos
+            </div>
+            <div class="nav-item" onclick="showSection('reports')">
+                Relatórios
+            </div>
+            <div class="nav-item" onclick="showSection('users')">
+                Usuários
+            </div>
+            <div class="nav-item" onclick="showSection('settings')">
+                Configurações
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Products Section -->
+            <div id="productsSection">
+                <div class="content-header">
+                    <h1>Gerenciamento de Produtos</h1>
+                    <p>Cadastre, edite e consulte produtos do sistema</p>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar por código, nome ou categoria...">
+                    <button class="search-btn" onclick="searchProducts()">Buscar</button>
+                    <button class="btn btn-success" onclick="openProductModal()">Novo Produto</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <!-- Products List -->
+                    <div class="products-list" id="productsList">
+                        <!-- Produtos serão carregados aqui via JavaScript -->
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="product-details" id="productDetails">
+                        <div style="text-align: center; color: #7f8c8d; padding: 2rem;">
+                            Selecione um produto para visualizar os detalhes
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Sections (inicialmente hidden) -->
+            <div id="reportsSection" style="display: none;">
+                <div class="content-header">
+                    <h1>Relatórios</h1>
+                    <p>Em desenvolvimento...</p>
+                </div>
+            </div>
+
+            <div id="usersSection" style="display: none;">
+                <div class="content-header">
+                    <h1>Gerenciamento de Usuários</h1>
+                    <p>Em desenvolvimento...</p>
+                </div>
+            </div>
+
+            <div id="settingsSection" style="display: none;">
+                <div class="content-header">
+                    <h1>Configurações</h1>
+                    <p>Em desenvolvimento...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Cadastro/Edição de Produto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Novo Produto</h2>
+                <button class="close-modal" onclick="closeProductModal()">&times;</button>
+            </div>
+            <form id="productForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Código de Barras (EAN)</label>
+                        <input type="text" class="form-input" id="productEan" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nome do Produto</label>
+                        <input type="text" class="form-input" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Categoria</label>
+                        <input type="text" class="form-input" id="productCategory" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preço de Custo</label>
+                        <input type="number" class="form-input" id="productCost" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preço de Venda</label>
+                        <input type="number" class="form-input" id="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Estoque Atual</label>
+                        <input type="number" class="form-input" id="productStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Estoque Mínimo</label>
+                        <input type="number" class="form-input" id="productMinStock" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Fornecedor Principal</label>
+                        <input type="text" class="form-input" id="productSupplier" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" onclick="closeProductModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

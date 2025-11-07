@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando - ZenithPDV</title>
+    <link rel="stylesheet" href="css/loading.css">
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo">ZenithPDV</div>
+        <div class="loading-text">Inicializando sistema</div>
+        
+        <!-- Spinner profissional -->
+        <div class="spinner"></div>
+        
+        <!-- Barra de progresso sutil -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Status discreto -->
+        <div class="status" id="status">Carregando módulos...</div>
+    </div>
+
+    <script>
+        // Mensagens de status profissionais
+        const statusMessages = [
+            "Carregando módulos...",
+            "Inicializando componentes...",
+            "Preparando interface...",
+            "Quase pronto...",
+            "Finalizando configuração..."
+        ];
+
+        let currentStatus = 0;
+        const statusElement = document.getElementById('status');
+
+        function updateStatus() {
+            statusElement.textContent = statusMessages[currentStatus];
+            currentStatus = (currentStatus + 1) % statusMessages.length;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar status a cada 2 segundos
+            setInterval(updateStatus, 2000);
+            
+            // Redirecionar após tempo adequado
+            setTimeout(() => {
+                const token = localStorage.getItem('authToken');
+                if (token) {
+                    window.location.href = 'principal.html';
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }, 5000); // 5 segundos de loading
+        });
+    </script>
+</body>
+</html>
